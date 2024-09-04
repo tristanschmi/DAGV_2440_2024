@@ -1,0 +1,50 @@
+//Create bottom sphere
+polySphere -radius 3 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -objectSpace -worldSpaceDistance 0 3 0;
+//Create middle sphere
+polySphere -radius 1 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+polySphere -e -radius 2;
+move -relative -objectSpace -worldSpaceDistance 0 7 0;
+//Create top sphere
+polySphere -radius 1 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -objectSpace -worldSpaceDistance 0 9.5 0;
+//Create cone nose
+polyCone -radius 1 -height 2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 0 -axis 0 1 0 -rcp 0 -createUVs 3 -constructionHistory 1;
+move -relative -1.25 9.5 0;
+rotate -relative -objectSpace -forceOrderXYZ 0 0 90;
+scale -relative 0.2 0.3 0.2;
+//Create left eye
+polySphere -radius 1 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -0.8 10 0.4;
+rotate -relative -objectSpace -forceOrderXYZ -2.4 21 -24;
+scale -relative 0.04 0.15 0.15;
+//Create right eye
+polySphere -radius 1 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -0.8 10 -0.4;
+rotate -relative -objectSpace -forceOrderXYZ -16 -25 -24;
+scale -relative 0.04 0.15 0.15;
+//Create top button
+polySphere -radius 1 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -1.9 7.6 0;
+rotate -relative -objectSpace -forceOrderXYZ 0 0 -16;
+scale -relative 0.07 0.25 0.25;
+//Create middle button
+polySphere -radius 1 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -1.9 6.35 0;
+rotate -relative -objectSpace -forceOrderXYZ 4.1 1 15.5;
+scale -relative 0.07 0.25 0.25;
+//Create bottom button
+polySphere -radius 1 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -2.1 5.1 0;
+rotate -relative -objectSpace -forceOrderXYZ 0 0 -45.7;
+scale -relative 0.07 0.25 0.25;
+//Create right arm
+polyCylinder -radius 1 -height 2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -rcp 0 -createUVs 3 -constructionHistory 1;
+move -relative 0 7.5 -3;
+rotate -relative -objectSpace -forceOrderXYZ -80 0 0;
+scale -relative 0.12 1.14 0.12;
+//Create left arm
+polyCylinder -radius 1 -height 2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -rcp 0 -createUVs 3 -constructionHistory 1;
+move -relative 0 7.5 3;
+rotate -relative -objectSpace -forceOrderXYZ 101 -1.2 180;
+scale -relative 0.12 1.14 0.12;
