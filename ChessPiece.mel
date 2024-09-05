@@ -1,0 +1,42 @@
+//Create base
+polyCylinder -radius 1 -height 2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -relative 0 0.5 0;
+scale -relative 2.5 0.5 2.5;
+//Create bottom middle
+polyCylinder -radius 1 -height 2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -relative 0 1.75 0;
+scale -relative 1.513 1.152 1.513;
+//Create middle
+polyCylinder -radius 1 -height 2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -relative 0 4.324 0;
+scale -relative 0.639 1.463 0.639;
+//Create middle support 1
+polyCube -width 1 -height 1 -depth 1 -subdivisionsX 1 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -createUVs 4 -constructionHistory 1;
+move -relative -0.685 4.376 0.718;
+scale 0.481 3.179 0.481;
+//Create middle support 2
+polyCube -width 1 -height 1 -depth 1 -subdivisionsX 1 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -createUVs 4 -constructionHistory 1;
+move -relative 0.720 4.376 -0.699;
+scale 0.481 3.179 0.481;
+//Create middle support 3
+polyCube -width 1 -height 1 -depth 1 -subdivisionsX 1 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -createUVs 4 -constructionHistory 1;
+move -relative -0.685 4.376 -0.705;
+scale 0.481 3.179 0.481;
+//Create middle support 4
+polyCube -width 1 -height 1 -depth 1 -subdivisionsX 1 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -createUVs 4 -constructionHistory 1;
+move -relative 0.687 4.376 0.718;
+scale 0.481 3.179 0.481;
+//Create top
+polyCylinder -radius 1 -height 2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -relative 0 6.127 0;
+scale -relative 1.438 0.398 1.438;
+select -replace pCylinder4.f[0:19];
+PolyExtrude;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -1.714229584e-07 -pvy 6.12699962 -pvz -2.571344376e-07 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pCylinder4.f[0:19];
+setAttr "polyExtrudeFace1.localScale" -type double3 1 1 1.168279 ;
+setAttr "polyExtrudeFace1.localTranslate" -type double3 0 0 0.308335;
+//Extrude top
+select -r pCylinder4.f[61] pCylinder4.f[67] pCylinder4.f[69] pCylinder4.f[71] pCylinder4.f[77] pCylinder4.f[79] pCylinder4.f[81] pCylinder4.f[87] pCylinder4.f[89] pCylinder4.f[91] pCylinder4.f[97] pCylinder4.f[99];
+PolyExtrude;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -1.714229584e-07 -pvy 6.524999241 -pvz -3.428459168e-07 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pCylinder4.f[61] pCylinder4.f[67] pCylinder4.f[69] pCylinder4.f[71] pCylinder4.f[77] pCylinder4.f[79] pCylinder4.f[81] pCylinder4.f[87] pCylinder4.f[89] pCylinder4.f[91] pCylinder4.f[97] pCylinder4.f[99];
+setAttr "polyExtrudeFace4.localTranslate" -type double3 0 0 1.09309;
