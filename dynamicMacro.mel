@@ -1,0 +1,30 @@
+float $radius = 1;
+float $logLength = 15;
+float $angle = 90;
+float $rowNum = 20;
+float $column = 10;
+float $direction = 1;
+
+//Create first log
+polyCylinder -r $radius -h $logLength -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
+rotate -r 0 0 $angle;
+move -r 0 $radius -10;
+
+//For loop to duplicate 
+for ($j=0; $j<$column; $j++)
+    {
+        for ($i=0; $i<$rowNum; $i++)
+            {
+                duplicate;
+                move -r 0 0 (($radius * 2) * $direction);
+            }
+       
+        duplicate;
+        move -r 0 ($radius * 1.7) ($direction *= -1);
+        $rowNum = ($rowNum - 1);
+        
+    }
+//Remove extra log made at top of stack
+delete;
+
+
