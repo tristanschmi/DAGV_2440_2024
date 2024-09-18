@@ -1,0 +1,42 @@
+proc StairBuilder(int $numStairs, float $stepLength, float $stepWidth, float $stepHeight, float $pivotOffset, float $stepRotation)
+{
+    string $selStair;
+    string $temp[];
+
+    // Create the base stair step
+    $temp = `polyCube -w $stepWidth -h $stepHeight -d $stepLength -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1`;
+    $selStair = $temp[0];
+
+    // Position the first step at the correct height
+    xform -worldSpace -translation 0 ($stepHeight / 2) 0 $selStair;
+
+    // Variable to track cumulative rotation
+    float $currentRotation = 0;
+
+    // Loop to create remaining steps in a spiral pattern
+    for ($i = 1; $i < $numStairs; $i++)
+    {
+        // Duplicate the base step
+        $temp = `duplicate -returnRootsOnly $selStair`;
+        $selStair = $temp[0];
+
+        // Increment the cumulative rotation
+        $currentRotation += $stepRotation;
+
+        // Calculate the position (x, z) for the step based on pivotOffset and the cumulative angle
+        float $x = $pivotOffset * sin(deg_to_rad($currentRotation));
+        float $z = $pivotOffset * cos(deg_to_rad($currentRotation));
+        float $y = $stepHeight * $i; // Increment the height for each step
+
+        // Apply translation and cumulative rotation to the new step
+        xform -relative -objectSpace -translation $x $y $z $selStair;
+        xform -relative -rotation 0 $stepRotation 0 $selStair; // Rotate by $stepRotation relative to the previous
+    }
+}
+
+// Call the function with example arguments
+StairBuilder(15, 1, 2, 0.02, 2, 15); 
+
+//Only issue I am running into is the angle the stairs rotate at, as it is not consistent with the stair before it.
+//I ran it through AI a couple times but it also couldn't really do anything for it.
+//Everything else works except that rotation isse.
