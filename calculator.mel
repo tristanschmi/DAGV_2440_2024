@@ -1,0 +1,102 @@
+// Function to calculate the sum
+proc float sumNumbers(float $numbers[])
+{
+    float $sum = 0;
+    for ($num in $numbers)
+    {
+        $sum += $num;
+    }
+    return $sum;
+}
+
+// Function to calculate the subtraction
+proc float subtractNumbers(float $numbers[])
+{
+    float $result = $numbers[0];
+    for ($i = 1; $i < size($numbers); $i++)
+    {
+        $result -= $numbers[$i];
+    }
+    return $result;
+}
+
+// Function to calculate the multiplication
+proc float multiplyNumbers(float $numbers[])
+{
+    float $result = 1;
+    for ($num in $numbers)
+    {
+        $result *= $num;
+    }
+    return $result;
+}
+
+// Function to calculate the division
+proc float divideNumbers(float $numbers[])
+{
+    float $result = $numbers[0];
+    for ($i = 1; $i < size($numbers); $i++)
+    {
+        if ($numbers[$i] == 0)
+        {
+            error("Division by zero!");
+        }
+        $result /= $numbers[$i];
+    }
+    return $result;
+}
+
+// Function to calculate power 
+proc float powerNumbers(float $base, float $exponent)
+{
+    return `pow $base $exponent`;
+}
+
+// Function to calculate the mean
+proc float meanNumbers(float $numbers[])
+{
+    float $sum = sumNumbers($numbers);
+    float $mean = $sum / size($numbers);
+    return $mean;
+}
+
+// Function to calculate the median
+proc float medianNumbers(float $numbers[])
+{
+    float $sortedNumbers[] = `sort $numbers`;
+    int $size = size($sortedNumbers);
+    
+    if ($size % 2 == 1)
+    {
+        return $sortedNumbers[$size / 2];
+    }
+    else
+    {
+        float $mid1 = $sortedNumbers[($size / 2) - 1];
+        float $mid2 = $sortedNumbers[$size / 2];
+        return ($mid1 + $mid2) / 2;
+    }
+}
+
+//Call each function and choose values
+float $numbers[] = {5, 2, 1, 10, 12};
+
+float $sum = sumNumbers($numbers);
+print ($sum);
+
+float $result = subtractNumbers($numbers);
+print ($result);
+
+float $result = multiplyNumbers($numbers);
+print ($result);
+
+float $result = divideNumbers($numbers);
+print ($result);
+
+float $base = 5;
+float $exponent = 2;
+float $powerResult = powerNumbers($base, $exponent);
+print ($powerResult);
+
+float $result = meanNumbers($numbers);
+print ($result);

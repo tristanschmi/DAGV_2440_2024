@@ -1,0 +1,7 @@
+//In class example array
+string $veggies[] = {"tomato", "carrot", "lettuce"};
+
+size $veggies;
+$veggies[`size $veggies`] = "cucumber";
+
+print $veggies;
