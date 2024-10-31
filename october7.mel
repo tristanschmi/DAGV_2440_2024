@@ -1,0 +1,25 @@
+
+
+proc CenterLoc()
+{
+    string $sels[] = `ls -sl`;
+
+    float $bbox[] = `xform -q -boundingBox $sels`;
+    float $centerX;
+    float $centerY;
+    float $centerZ;
+
+
+    //xmin ymin zmin xmax ymax zmax
+    //  0   1     2   3     4    5
+
+    float $centerX = ($bbox[0] + $bbox[3]) / 2;
+    float $centerY = ($bbox[1] + $bbox[4]) / 2;
+    float $centerZ = ($bbox[2] + $bbox[5]) / 2;
+
+    string $loc[] = `spaceLocator -p 0 0 0`;
+
+    xform -worldSpace -translation $centerX $centerY $centerZ $loc[0];
+}
+
+CenterLoc();
