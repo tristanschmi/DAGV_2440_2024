@@ -9,38 +9,38 @@ def set_override_color(color):
 
     # Dictionary mapping color names to their respective index values
     color_map = {
-        'light gray': 1,
-        'black': 2,
-        'dark gray': 3,
-        'ash gray': 4,
-        'crimson': 5,
-        'dark blue': 6,
-        'blue': 7,
-        'dark green': 8,
-        'purple': 9,
-        'pink': 10,
-        'orange': 11,
-        'brown': 12,
-        'dark red': 13,
-        'red': 14,
-        'green': 15,
-        'navy': 16,
-        'white': 17,
-        'yellow': 18,
-        'sky blue': 19,
-        'lime green': 20,
-        'light pink': 21,
-        'light orange': 22,
-        'light yellow': 23,
-        'grass green': 24,
-        'flesh': 25,
-        'gold': 26,
-        'neon green': 27,
-        'turquoise': 28,
-        'aquamarine': 29,
-        'ocean blue': 30,
-        'magenta': 31,
-        'dark pink':32,
+        'light gray': 0,
+        'black': 1,
+        'dark gray': 2,
+        'ash gray': 3,
+        'crimson': 4,
+        'dark blue': 5,
+        'blue': 6,
+        'dark green': 7,
+        'purple': 8,
+        'pink': 9,
+        'orange': 10,
+        'brown': 11,
+        'dark red': 12,
+        'red': 13,
+        'green': 14,
+        'navy': 15,
+        'white': 16,
+        'yellow': 17,
+        'sky blue': 18,
+        'lime green': 19,
+        'light pink': 20,
+        'light orange': 21,
+        'light yellow': 22,
+        'grass green': 23,
+        'flesh': 24,
+        'gold': 25,
+        'neon green': 26,
+        'turquoise': 27,
+        'aquamarine': 28,
+        'ocean blue': 29,
+        'magenta': 30,
+        'dark pink': 31,
 
         # Add other color mappings as needed
     }
@@ -72,7 +72,7 @@ def set_override_color(color):
             cmds.setAttr(f"{shape}.overrideColor", color)
 
 # Example usage: Change the override color to red
-set_override_color('green')
+set_override_color('red')
 
 # Or using a specific numeric value:
 # set_override_color(13)
