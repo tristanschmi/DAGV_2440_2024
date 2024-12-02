@@ -71,7 +71,7 @@ def set_override_color(color):
             cmds.setAttr(f"{shape}.overrideEnabled", True)
             cmds.setAttr(f"{shape}.overrideColor", color)
 
-# Example usage: Change the override color to red
+
 set_override_color('red')
 
 # Or using a specific numeric value:
